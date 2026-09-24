@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "inbox-ledger",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  // Serve on your own domain. Remove "routes" and set "workers_dev": true to use a workers.dev address instead.
+  "workers_dev": false,
+  "routes": [{ "pattern": "ledger.example.com", "custom_domain": true }],
+  "assets": {
+    "directory": "dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    // Paste the id printed by `npx wrangler d1 create inbox-ledger`.
+    { "binding": "DB", "database_name": "inbox-ledger", "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID", "migrations_dir": "migrations" }
+  ],
+  "send_email": [{ "name": "MAIL" }],
+  // Monday 00:00 UTC, 07:00 in Vietnam: the weekly summary.
+  "triggers": { "crons": ["0 0 * * 1"] },
+  "observability": { "enabled": true },
+  "vars": {
+    "APP_URL": "https://ledger.example.com",
+    "MAIL_FROM": "ledger@example.com"
+  }
+}

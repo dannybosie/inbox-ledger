@@ -1,0 +1,7 @@
+Example Bank
+
+Account 0123xxx789 changed by -120,000 VND at 13/09/2026 13:24.
+Available balance: 4,880,000 VND.
+Description: GRABFOOD ORDER 5521.
+
+This is an automated message from Example Bank. Do not reply.

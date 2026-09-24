@@ -1,0 +1,4 @@
+Example Bank
+
+Card ending 4321 was charged 12.50 USD at NETFLIX.COM on 14/09/2026 20:05.
+If you did not make this transaction, call us right away.
